@@ -24,7 +24,9 @@ def scrape(url):
         res = requests.get(url)
         soup = bs(res.content, 'lxml')
         tweet_text = soup.select_one('title').text
-        link = re.search(links_pattern, tweet_text).group()
+        link = re.search(links_pattern, tweet_text)
+        if link != None:
+            link = link.group()
         tweet_text = re.sub(links_pattern, '', tweet_text.rstrip())
         tweet_text = re.sub(hashtags_pattern, '', tweet_text.rstrip())
         tweet_text = ''.join(tweet_text.split(':')[1:]) # trim username
