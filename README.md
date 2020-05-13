@@ -34,7 +34,7 @@ python main.py --query_tweets="
 ``` bash
 python main.py --train=true -p "dataset/useful-tweets.json" -n "dataset/useless-tweets.json" -r .3 -a "all"
 ```
-- The model will save into ``` ./dataset/ ``` directory by default
+- The model will save into ``` ./model/ ``` directory by default
 
 ## Testing the model
 - Predict a class of the tweet by
