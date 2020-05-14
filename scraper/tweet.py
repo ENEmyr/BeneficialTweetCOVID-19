@@ -28,8 +28,8 @@ def scrape(url):
         if link != None:
             link = link.group()
         tweet_text = re.sub(links_pattern, '', tweet_text.rstrip())
-        tweet_text = re.sub(hashtags_pattern, '', tweet_text.rstrip())
         tweet_text = ''.join(tweet_text.split(':')[1:]) # trim username
+        tweet_text = re.sub(hashtags_pattern, '', tweet_text.rstrip())
         tweet_text += ' '.join(get_url_title([link]))
         tweet_text = re.sub(noise_cut_pattern, '', tweet_text)
         return tweet_text

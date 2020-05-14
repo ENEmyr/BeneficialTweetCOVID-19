@@ -43,11 +43,11 @@ def train(
     neg_dataset_path = neg_dataset_path.split('/')
 
     X, y = load_dataset(pos_dataset_path, neg_dataset_path)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30)
     X_train, X_test = X_train.reshape(-1, X_train.shape[2]), X_test.reshape(-1, X_test.shape[2])
     if algorithms.lower() == 'svm' or algorithms.lower() == 'all':
         # Support vector machine classifier
-        clf = svm.SVC(C = 1.0, kernel = 'linear', degree = 3, gamma = 'auto')
+        clf = svm.SVC(C = 5.0, kernel = 'rbf')
         clf.fit(X_train, y_train)
         # Predict the labels on validation dataset
         y_pred = clf.predict(X_test)
@@ -55,7 +55,7 @@ def train(
         dump(clf, abspath(join('model', 'svm_classifier.joblib'))) # save model
     if algorithms.lower() == 'tf' or algorithms.lower() == 'all':
         # Random Forest classifier
-        clf = RandomForestClassifier(max_depth=10, random_state=1, criterion='entropy')
+        clf = RandomForestClassifier(max_depth=11, criterion='entropy')
         clf.fit(X_train, y_train)
         # Predict the labels on validation dataset
         y_pred = clf.predict(X_test)
