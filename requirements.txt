@@ -75,7 +75,7 @@ pythainlp==2.1.4
 python-dateutil==2.8.1
 python-utils==2.4.0
 pytz==2020.1
-pywin32==227
+pywin32==301
 pywinpty==0.5.7
 pyzmq==19.0.0
 qtconsole==4.7.3
