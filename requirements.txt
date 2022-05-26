@@ -95,7 +95,7 @@ smart-open==2.0.0
 soupsieve==2.0
 tensorboard==2.2.1
 tensorboard-plugin-wit==1.6.0.post3
-tensorflow-gpu==2.2.0rc4
+tensorflow-gpu==2.7.2
 tensorflow-gpu-estimator==2.2.0
 termcolor==1.1.0
 terminado==0.8.3
